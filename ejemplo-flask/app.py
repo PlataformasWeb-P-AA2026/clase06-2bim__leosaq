@@ -5,7 +5,7 @@ import json
 app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'una-clave-secreta-000001'
 
-token = 'baa3297a4c53b5516f4fc6a9cc50f859271b4cc8'
+token = '4c385f855b30eaf7783e8ef52cb61fe7a903ca7b'
 headers = {
         "Authorization": f"Token {token}",
         "Content-Type": "application/json"
@@ -21,7 +21,7 @@ def los_estudiantes():
     """
     """
     r = requests.get("http://localhost:8000/api/estudiantes/",
-            auth=('rene', '1'))
+            auth=('antadmin', 'admin12345'))
     print("---------------------")
     print(r.content)
     print("---------------------")

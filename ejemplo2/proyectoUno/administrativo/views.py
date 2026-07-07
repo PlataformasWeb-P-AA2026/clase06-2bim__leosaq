@@ -11,11 +11,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from administrativo.serializers import UserSerializer, GroupSerializer, \
+from administrativo.serializers import DireccionSerializer, UserSerializer, GroupSerializer, \
 EstudianteSerializer, NumeroTelefonicoSerializer
 
 # importar las clases de models.py
-from administrativo.models import Estudiante, NumeroTelefonico
+from administrativo.models import Direccion, Estudiante, NumeroTelefonico
 
 # importar los formularios de forms.py
 from administrativo.forms import EstudianteForm, NumeroTelefonicoEstudianteForm, \
@@ -196,4 +196,13 @@ class NumeroTelefonicoViewSet(viewsets.ModelViewSet):
     """
     queryset = NumeroTelefonico.objects.all()
     serializer_class = NumeroTelefonicoSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class DireccionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Direccion.objects.all()
+    serializer_class = DireccionSerializer
     permission_classes = [permissions.IsAuthenticated]
