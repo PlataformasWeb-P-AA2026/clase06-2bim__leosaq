@@ -187,6 +187,8 @@ class EstudianteViewSet(viewsets.ModelViewSet):
     queryset = Estudiante.objects.all()
     serializer_class = EstudianteSerializer
     permission_classes = [permissions.IsAuthenticated]
+    
+    
 
 
 class NumeroTelefonicoViewSet(viewsets.ModelViewSet):
